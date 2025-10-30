@@ -1,0 +1,435 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  color: #1e293b;
+}
+
+/* Auth Page */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.auth-box {
+  background: #1e293b;
+  padding: 48px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.auth-box h1 {
+  margin-bottom: 32px;
+  text-align: center;
+  color: #f1f5f9;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-box input,
+.auth-box textarea,
+.auth-box select {
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 10px;
+  font-size: 14px;
+  background: #0f172a;
+  color: #f1f5f9;
+  transition: all 0.3s;
+}
+
+.auth-box input::placeholder,
+.auth-box textarea::placeholder {
+  color: #64748b;
+}
+
+.auth-box input:focus,
+.auth-box textarea:focus,
+.auth-box select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #1e293b;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.auth-box button[type="submit"] {
+  padding: 12px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.auth-box button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.auth-box button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.auth-box p {
+  text-align: center;
+  margin-top: 24px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.toggle-btn:hover {
+  color: #60a5fa;
+}
+
+.error-message {
+  padding: 12px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  color: #fca5a5;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 24px 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-header h1 {
+  color: #f1f5f9;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logout-btn {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #1e293b;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profile-section h2,
+.tasks-section h2 {
+  color: #f1f5f9;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.profile-section form,
+.add-task-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-section input,
+.profile-section textarea,
+.add-task-card input,
+.add-task-card textarea,
+.add-task-card select,
+.filters input,
+.filters select {
+  padding: 10px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 10px;
+  font-size: 13px;
+  background: #0f172a;
+  color: #f1f5f9;
+  transition: all 0.2s;
+}
+
+.profile-section input::placeholder,
+.profile-section textarea::placeholder,
+.add-task-card input::placeholder,
+.add-task-card textarea::placeholder,
+.filters input::placeholder {
+  color: #64748b;
+}
+
+.profile-section input:focus,
+.profile-section textarea:focus,
+.add-task-card input:focus,
+.add-task-card textarea:focus,
+.add-task-card select:focus,
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #1e293b;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.profile-section p {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.profile-section button,
+.button-group button,
+.add-task-card form > button {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 13px;
+}
+
+.add-task-card form > button {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-task-card form > button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.add-task-card form > button:hover::before {
+  left: 0;
+}
+
+.add-task-card form > button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.button-group button {
+  flex: 1;
+}
+
+.profile-section button:hover,
+.button-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.delete-btn:hover {
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4) !important;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tasks-list {
+  display: grid;
+  gap: 12px;
+}
+
+.task-card {
+  background: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-left: 4px solid #64748b;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(148, 163, 184, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.task-card.priority-high {
+  border-left-color: #ef4444;
+}
+
+.task-card.priority-medium {
+  border-left-color: #f97316;
+}
+
+.task-card.priority-low {
+  border-left-color: #10b981;
+}
+
+.task-card h3 {
+  color: #f1f5f9;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.task-card p {
+  color: #94a3b8;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.task-meta {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.status,
+.priority {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+}
+
+.status-in-progress {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fed7aa;
+}
+
+.status-completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: #86efac;
+}
+
+.prio-low {
+  background: rgba(16, 185, 129, 0.2);
+  color: #86efac;
+}
+
+.prio-medium {
+  background: rgba(249, 115, 22, 0.2);
+  color: #fed7aa;
+}
+
+.prio-high {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  color: #64748b;
+  padding: 50px 20px;
+  font-size: 14px;
+}
+
+.add-task-card {
+  margin-bottom: 20px;
+}
